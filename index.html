@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Etch-a-sketch</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1 class="title">Etch-A-Sketch</h1>
+    <label for="board-size">Board Size:</label>
+    <input type="range" min="10" max="100" value="20" title="16 x 16" data-board-size>
+    <div class="board" data-board></div>
+    <div class="options">
+        <input type="color" data-color>
+        <button class="btn" data-filler>One-color fill</button>
+        <button class="btn" data-random-color>Random-color fill</button>
+        <button class="btn" data-eraser>Eraser</button>
+        <button class="btn" data-reset>Reset</button>
+        <button class="btn" data-gridline>Add/remove gridlines</button>
+    </div>
+</body>
+</html>
