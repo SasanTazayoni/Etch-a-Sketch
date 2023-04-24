@@ -9,14 +9,20 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 class="title">Etch-A-Sketch</h1>
-    <label for="board-size">Board Size:</label>
-    <input type="range" min="10" max="100" value="20" title="16 x 16" data-board-size>
-    <div class="board" data-board></div>
-    <div class="options">
+    <div class="left-menu">
         <input type="color" data-color>
         <button class="btn" data-filler>One-color fill</button>
         <button class="btn" data-random-color>Random-color fill</button>
+        <button class="btn" data-darken>Darken</button>
+    </div>
+    <div class="board-content">
+        <h1 class="title">Etch-A-Sketch</h1>
+        <label for="board-size">Board Size:</label>
+        <input type="range" min="10" max="100" value="20" title="16 x 16" data-board-size>
+        <div class="board" data-board></div>
+    </div>
+    <div class="right-menu">
+        <button class="btn" data-brighten>Brighten</button>
         <button class="btn" data-eraser>Eraser</button>
         <button class="btn" data-reset>Reset</button>
         <button class="btn" data-gridline>Add/remove gridlines</button>
