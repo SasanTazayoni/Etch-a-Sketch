@@ -58,12 +58,6 @@ document.addEventListener('mousemove', e => {
 
 document.addEventListener('mouseup', () => isDragging = false);
 
-document.querySelectorAll('button:not([data-random-color])').forEach(button => {
-    button.addEventListener('click', () => {
-        colorRandomiser = false;
-    });
-});
-
 boardContainer.addEventListener('mouseleave', () => isDragging = false);
 
 colorPicker.value = currentColor;
