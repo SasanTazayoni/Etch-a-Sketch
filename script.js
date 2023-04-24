@@ -33,6 +33,16 @@ function createBoard(size) {
             boardContainer.appendChild(square);
         }
     }
+
+    document.querySelectorAll('.square').forEach(square => {
+        square.addEventListener('click', () => {
+            if (colorRandomiser) {
+                square.style.backgroundColor = getRandomColor();
+            } else {
+                square.style.backgroundColor = currentColor;
+            }
+        });
+    });
 }
 
 boardSizeRange.addEventListener('input', () => {
@@ -80,10 +90,13 @@ function getRandomColor() {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
-    return `rgb(${r}, ${g}, ${b}`;
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
-eraser.addEventListener('click', () => currentColor = `rgb(255, 255, 255)`);
+eraser.addEventListener('click', () => {
+    currentColor = `rgb(255, 255, 255)`;
+    colorRandomiser = false;
+});
 
 reset.addEventListener('click', () => {
     document.querySelectorAll('[data-square]').forEach(square => 
