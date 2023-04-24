@@ -112,11 +112,12 @@ input[type="color"] {
     outline: none;
     padding: 0;
     background: none;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     transition: 0.3s all;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 input[type="color"]:hover {

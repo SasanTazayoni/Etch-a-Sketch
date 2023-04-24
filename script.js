@@ -4,8 +4,6 @@ const boardContainer = document.querySelector('[data-board]');
 const colorPicker = document.querySelector('[data-color]');
 const filler = document.querySelector('[data-filler]');
 const randomColor = document.querySelector('[data-random-color]');
-const darkener = document.querySelector('[data-darken]');
-const brightener = document.querySelector('[data-brighten]');
 const eraser = document.querySelector('[data-eraser]');
 const reset = document.querySelector('[data-reset]');
 const gridlines = document.querySelector('[data-gridline]');
@@ -94,52 +92,6 @@ function getRandomColor() {
     let b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
 }
-
-function darkenOrBrightenSquare(btnType) {
-    const squares = document.querySelectorAll('.square');
-    squares.forEach((square) => {
-    const currentColor = window.getComputedStyle(square).getPropertyValue('background-color');
-    let color = '';
-
-    if (btnType === 'darken') {
-        if (currentColor !== 'rgb(0, 0, 0)') {
-            const darkenedColor = darken(currentColor, 10);
-            color = darkenedColor;
-        }
-    } else if (btnType === 'brighten') {
-        if (currentColor !== 'rgb(255, 255, 255)') {
-            const brightenedColor = brighten(currentColor, 10);
-            color = brightenedColor;
-        }
-    }
-
-        square.style.backgroundColor = color;
-    });
-}
-
-function darken(color, amount) {
-    const rgb = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    const r = parseInt(rgb[1]);
-    const g = parseInt(rgb[2]);
-    const b = parseInt(rgb[3]);
-    return `rgb(${r - amount}, ${g - amount}, ${b - amount})`;
-}
-
-function brighten(color, amount) {
-    const rgb = color.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    const r = parseInt(rgb[1]);
-    const g = parseInt(rgb[2]);
-    const b = parseInt(rgb[3]);
-    return `rgb(${r + amount}, ${g + amount}, ${b + amount})`;
-}
-
-darkener.addEventListener('click', () => {
-    darkenOrBrightenSquare('darken');
-});
-
-brightener.addEventListener('click', () => {
-    darkenOrBrightenSquare('brighten');
-});
 
 eraser.addEventListener('click', () => {
     currentColor = `rgb(255, 255, 255)`;
